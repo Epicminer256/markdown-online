@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Markdown editor</title>
+  <style>
+    html {
+      border: 0;
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+    }
+    #frame{
+      border: 0;
+      margin: 0;
+      padding: 0;
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 50%;
+      height: 100%;
+    }
+    #md-in{
+      font-family: monospace;
+      background-color: darkslategrey;
+      color: white;
+      resize: none;
+      border: 0;
+      margin: 0;
+      padding: 0;
+      padding-top: 28px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 50%;
+      height: 70%;
+    }
+    #css-in{
+      font-family: monospace;
+      background-color: #1D1F21;
+      color: white;
+      resize: none;
+      border: 0;
+      margin: 0;
+      padding: 0;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50%;
+      height: 30%;
+    }
+    #buttons{
+      border: 0;
+      margin: 0;
+      padding: 0;
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: 999;
+      height: 20px
+      background-color: grey;
+    }
+  </style>
+</head>
+
+<body>
+  <iframe id="frame" name="frame"></iframe>
+  <div id="buttons">
+    <button id="preview">Update Preview</button>
+    <button id="convert">Preview in new tab</button>
+    <button id="print">Print Worksheet</button>
+    <input id="fontsize" type="number" value="12" style="width: 50px;">
+  </div>
+  <textarea id="md-in">
+<div id="right">
+    Name: _____________<br>
+    Date: _________
+</div>
+
+# Worksheet Markdown Showcase
+----------------------------------
+
+This is a assignment template to showcase this Markdown editor. The right window is a preview of your Markdown document, the top left window is your Markdown code, and the bottom left window is CSS theming code. You can print the Markdown document by clicking one of the buttons on the top left. For now you have to manually refresh the preview window when editing your code which is done with those previously mentioned buttons.
+
+## What is a typical name of a HTML home page?
+
+<br>
+
+## What does a title tag do?
+
+<br>
+<br>
+<br>
+
+## Inside this HTML Skeleton, circle the error
+
+```
+<html>
+    <head>
+        <title>Hello World<title>
+    </head>
+    <body>
+        <p>Hello World</p>
+    </body>
+</html>
+```
+  </textarea>
+  <textarea id="css-in">
+body{
+    font-family: arial;
+}
+#center{
+  text-align: center;
+}
+#left{
+  float: left;
+}
+#right{
+  float: right;
+}
+code{
+  white-space: pre;
+}
+  
+  </textarea>
+  <script>
+    function genPreview() {
+      css = encodeURIComponent(document.getElementById("css-in").value)
+      md = encodeURIComponent(document.getElementById("md-in").value)
+      return location.protocol+"//"+location.host+"/?md=" + md + "&css=" + css
+    }
+    function changeFontSize(){
+      document.getElementById("css-in").style.fontSize = document.getElementById("fontsize").value+"px";
+      document.getElementById("md-in").style.fontSize = document.getElementById("fontsize").value+"px";
+    }
+    
+    document.getElementById('frame').src = genPreview()
+    document.getElementById('preview').onclick = () => {
+      document.getElementById('frame').src = genPreview()
+    }
+    document.getElementById('convert').onclick = () => {
+      window.open(genPreview(), "_blank")
+    }
+    document.getElementById("print").onclick = () => {
+      document.getElementById("frame").contentWindow.print();
+    }
+    document.getElementById("fontsize").oninput  = () => {
+      changeFontSize()
+    }
+  </script>
+</body>
+
+</html>
