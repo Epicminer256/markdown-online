@@ -1,7 +1,3 @@
-<!-- Not coded the cleanest, but it works
-Note: fix the height issue with the markdown window 
--->
-
 <!DOCTYPE html>
 <html>
 
@@ -27,20 +23,22 @@ Note: fix the height issue with the markdown window
       width: 50%;
       height: 100%;
     }
-    #md-in{
-      font-family: monospace;
-      background-color: darkslategrey;
-      color: white;
-      resize: none;
-      border: 0;
-      margin: 0;
-      padding: 0;
-      padding-top: 28px;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 50%;
-      height: 70%;
+    div#buttons > * {
+        font-size: 2vh;
+    }
+    #md-in {
+        font-family: monospace;
+        background-color: darkslategrey;
+        color: white;
+        resize: none;
+        border: 0;
+        padding: 0;
+        margin: 3% 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50%;
+        height: 65%;
     }
     #css-in{
       font-family: monospace;
@@ -56,17 +54,17 @@ Note: fix the height issue with the markdown window
       width: 50%;
       height: 30%;
     }
-    #buttons{
-      border: 0;
-      margin: 0;
-      padding: 0;
-      position: absolute;
-      left: 0;
-      top: 0;
-      z-index: 999;
-      height: 20px
-      background-color: grey;
+    #buttons {
+        border: 0;
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 999;
+        height: 2vh;
     }
+    
   </style>
 </head>
 
@@ -84,23 +82,23 @@ Note: fix the height issue with the markdown window
     Date: _________
 </div>
 
-# Worksheet Markdown Showcase
-----------------------------------
+Worksheet Markdown Showcase
+=============================
 
 This is a assignment template to showcase this Markdown editor. The right window is a preview of your Markdown document, the top left window is your Markdown code, and the bottom left window is CSS theming code. You can print the Markdown document by clicking one of the buttons on the top left. For now you have to manually refresh the preview window when editing your code which is done with those previously mentioned buttons.
 
-## What is a typical name of a HTML home page?
-
+What is a typical name of a HTML home page?
+--------------------------------------------
 <br>
 
-## What does a title tag do?
-
+What does a title tag do?
+---------------------------------------------
 <br>
 <br>
 <br>
 
-## Inside this HTML Skeleton, circle the error
-
+Inside this HTML Skeleton, circle the error
+---------------------------------------------
 ```
 <html>
     <head>
@@ -111,8 +109,6 @@ This is a assignment template to showcase this Markdown editor. The right window
     </body>
 </html>
 ```
-      
-      
   </textarea>
   <textarea id="css-in">
 body{
@@ -129,8 +125,11 @@ body{
 }
 code{
   white-space: pre;
+  background-color: lightgrey;
+  border-radius: 4px;
+  padding: 10px;
+  display: block;
 }
-  
   </textarea>
   <script>
     function genPreview() {
