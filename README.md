@@ -1,6 +1,6 @@
 # Markdown Online
 
-A web server in Python that offers a simple web interface for Markdown Editing
+A web server I made for fun.
 
 ## Go here to try it
 
