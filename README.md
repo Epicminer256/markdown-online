@@ -1,6 +1,6 @@
 # Markdown Online
 
-A web server I made for fun.
+ Will not update and will in the future get replaced
 
 ## Go here to try it
 
